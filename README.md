@@ -88,12 +88,9 @@ mkdir -p .cursor/rules
 
 # Add Business Memory Rules as submodule
 cd .cursor/rules
-git submodule add https://github.com/yourusername/business-memory-rules.git business-memory-rules
+git submodule add https://github.com/leshchenko1979/business-memory-rules.git business-memory-rules
 git submodule update --init --recursive
 cd ../..
-
-# Copy Cursor configuration
-cp .cursor/rules/business-memory-rules/.cursorrules .cursorrules
 ```
 
 ### What You Get After Setup
@@ -103,6 +100,7 @@ cp .cursor/rules/business-memory-rules/.cursorrules .cursorrules
 - ✅ **Seamless Workflow** - Business memory management integrated into Cursor
 - ✅ **Easy Updates** - Simple git commands to keep rules current
 - ✅ **Complete Documentation** - All rules and guidelines included
+- ✅ **Automatic Rule Loading** - Cursor automatically loads rules from .cursor/rules/
 
 ## 📁 Cursor Project Structure
 
@@ -113,7 +111,7 @@ your-cursor-project/
 ├── .cursor/
 │   └── rules/
 │       └── business-memory-rules/    # Git submodule with core rules
-├── .cursorrules                      # Cursor configuration file
+
 ├── memory-bank/                      # Your business memory
 │   └── YourBusiness/
 │       ├── business.md               # Business overview and goals
@@ -126,7 +124,7 @@ your-cursor-project/
 
 | File | Purpose | Content Type |
 |------|---------|-------------|
-| `.cursorrules` | Cursor configuration | Rules and guidelines for Cursor |
+
 | `business.md` | Business overview | Mission, goals, strategy, partnerships |
 | `progress-log.md` | Activity tracking | Completed actions with dates |
 | `project-artifacts/` | Document storage | Factual documents, completed work |
