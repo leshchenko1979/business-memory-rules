@@ -49,6 +49,22 @@ This system enables Cursor to:
 - Automatic detection of optimization opportunities
 - Intelligent content consolidation and duplicate removal
 
+### 🗣️ Dialog-Driven Rule Generation
+- Learns actionable rules, procedures, workflows, preferences from conversations
+- Dynamically creates `.mdc` rule files in `memory-bank/.cursor/rules/`
+- Agent autonomously names and organizes rule files by domain/process
+- Each rule file must include Cursor metadata:
+
+```
+---
+description: "[Brief description of learned rules]"
+alwaysApply: false
+---
+```
+
+- Confirms significant additions/changes with the user before creating/updating
+- Rules automatically apply via Cursor’s rule system once saved
+
 ### 🎯 Context Management
 - Automatic context determination based on user interactions
 - Seamless switching between different business/project contexts
@@ -101,6 +117,7 @@ cd ../..
 - ✅ **Easy Updates** - Simple git commands to keep rules current
 - ✅ **Complete Documentation** - All rules and guidelines included
 - ✅ **Automatic Rule Loading** - Cursor automatically loads rules from .cursor/rules/
+- ✅ **Dialog-Driven Rule Learning** - Learns from conversations and writes `.mdc` rules to `memory-bank/.cursor/rules/`
 
 ## 📁 Cursor Project Structure
 
@@ -113,6 +130,8 @@ your-cursor-project/
 │       └── business-memory-rules/    # Git submodule with core rules
 
 ├── memory-bank/                      # Your business memory
+│   └── .cursor/
+│       └── rules/                    # Dialog-driven learned rules (.mdc)
 │   └── YourBusiness/
 │       ├── business.md               # Business overview and goals
 │       ├── progress-log.md          # Completed actions and decisions
@@ -156,6 +175,20 @@ Once set up, the Business Memory Rules are automatically applied by Cursor:
 2. **Smart Memory Organization**: Information is automatically organized in the memory bank
 3. **Progress Logging**: Completed actions are logged with accurate timestamps
 4. **Seamless Integration**: Memory management happens transparently in your workflow
+
+#### Dialog-Driven Rules in Practice
+- Explain processes or preferences in chat to teach the system
+- Significant new rules are confirmed with you before saving
+- Confirmed rules are saved as `.mdc` files under `memory-bank/.cursor/rules/` with metadata:
+
+```
+---
+description: "[Brief description of learned rules]"
+alwaysApply: false
+---
+```
+
+- Saved rules are automatically applied by Cursor
 
 ### Working with Business Memory
 

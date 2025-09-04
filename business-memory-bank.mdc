@@ -195,3 +195,59 @@ Indicators for reorganization:
 - Remove outdated information from progress logs (keep only last 30 days)
 - Archive completed plans and move to historical records
 - Delete temporary notes after content is consolidated
+
+## 6. Dialog-Driven Rule Generation
+
+**Trigger:** User explains processes, states preferences, or demonstrates workflows in conversation
+
+**Action Rules:**
+
+### Rule Extraction
+- **Extract:** Actionable rules, procedures, workflows, preferences, decision criteria from dialog patterns
+- **Identify:** Clear, actionable patterns that can be codified as rules
+- **Focus:** On specific, repeatable processes and preferences rather than general business knowledge
+
+### Dynamic Rule Creation
+Create `.mdc` files in `/memory-bank/.cursor/rules/` as needed:
+- **Agent Autonomy:** Agent determines appropriate file names based on rule type and context
+- **File Organization:** Create separate files for distinct rule domains as conversation reveals patterns
+- **Flexible Structure:** Organize by functional area, process type, or preference category as appropriate
+- **Granularity Control:** Agent decides whether to create single comprehensive files or multiple focused files
+
+### File Format Requirements
+Each `.mdc` file must include proper Cursor metadata:
+```
+---
+description: "[Brief description of learned rules]"
+alwaysApply: false
+---
+```
+
+### Content Structure
+- **Clear Rules:** Concise, actionable rules derived from user dialog patterns
+- **Process Focus:** Specific workflows, procedures, and decision criteria
+- **Preference Capture:** User preferences for tools, approaches, and communication styles
+- **Workflow Patterns:** Recurring processes and their optimal execution paths
+
+### Validation and Confirmation
+- **Confirm Significant Changes:** Confirm significant rule additions/changes with user before creating/updating `.mdc` files
+- **User Review:** Present proposed rules for user approval when creating new rule files
+- **Iterative Refinement:** Allow user to modify and refine generated rules
+
+### Application and Integration
+- **Automatic Application:** Generated rules automatically apply via Cursor's rule system
+- **Seamless Integration:** Rules integrate with existing Cursor IDE functionality
+- **Context Awareness:** Rules apply appropriately based on file types and project contexts
+
+### Rule Management
+- **Dynamic Creation:** Create, update, merge, or split rule files as dialog patterns evolve
+- **Version Control:** Maintain rule history and allow rollback to previous versions
+- **Conflict Resolution:** Handle rule conflicts by prioritizing user preferences and recent patterns
+
+### Maintenance and Optimization
+- **Continuous Refinement:** Continuously refine rule organization based on conversation insights
+- **Performance Monitoring:** Track rule effectiveness and user satisfaction
+- **Rule Consolidation:** Merge related rules and remove outdated patterns as needed
+- **User Feedback Integration:** Incorporate user feedback to improve rule accuracy and relevance
+
+**Note:** Agent has full autonomy over file naming, organization, and granularity. Keep rules minimal and action-focused, avoiding duplication of existing business knowledge content.
