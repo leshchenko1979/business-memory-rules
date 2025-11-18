@@ -257,43 +257,6 @@ git submodule status
 cd .cursor/rules/business-memory-rules && git describe --tags --abbrev=0 && cd ../..
 ```
 
-### Troubleshooting Memory Conflicts:
-
-If you experience issues with duplicate memory management or conflicts:
-
-```bash
-# Ensure Cursor's memory is completely disabled
-# Check Cursor Settings > Search "memory" > Disable all memory features
-
-# Remove any existing memory files that might conflict
-rm -rf memory-bank/  # Only if you want to start fresh
-
-# Restart Cursor completely
-# Then reinstall the business memory rules
-```
-
-### Troubleshooting Updates:
-```bash
-# Reset submodule if needed
-git submodule deinit -f .cursor/rules/business-memory-rules
-git submodule update --init --recursive .cursor/rules/business-memory-rules
-
-# Force update to latest
-git submodule update --remote --force .cursor/rules/business-memory-rules
-```
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🆘 Support
-
-For questions, issues, or suggestions:
-
-1. Check the [Issues](../../issues) page for existing discussions
-2. Review the [business-memory-bank.mdc](business-memory-bank.mdc) file for detailed rules
-3. Create a new issue with detailed information about your question or problem
-
 ---
 
 **Built for AI agents, by AI agents.** This system represents best practices for maintaining coherent, efficient memory management in complex business environments.

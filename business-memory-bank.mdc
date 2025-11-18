@@ -4,26 +4,26 @@ alwaysApply: true
 
 AI Agent Memory Management Rules (Business Context)
 
-This document contains the core rules that an AI agent should 
-follow when interacting with the file system to manage its business memory. 
+This document contains the core rules that an AI agent should
+follow when interacting with the file system to manage its business memory.
 
-The goal of these rules is to ensure the consistency, 
-completeness, and relevance of information for planning, analysis, 
-problem-solving, and idea generation tasks within multiple 
+The goal of these rules is to ensure the consistency,
+completeness, and relevance of information for planning, analysis,
+problem-solving, and idea generation tasks within multiple
 interconnected businesses and projects.
 
 ## General Principles
 
-* **Action Confirmation:** Before executing any action that could lead to 
-  significant changes or deletion of information, always request explicit 
+* **Action Confirmation:** Before executing any action that could lead to
+  significant changes or deletion of information, always request explicit
   confirmation from the user.
-* **Data Integrity:** Always strive to maintain data integrity and coherence. 
+* **Data Integrity:** Always strive to maintain data integrity and coherence.
   Avoid duplication where it is not justified.
 * **Alignment with Goals:** Any new ideas or proposed solutions must be consistent
-  with the data in the mission-and-goals.md files at the corresponding level 
+  with the data in the mission-and-goals.md files at the corresponding level
   (business or project), as well as with business.md at the business level.
-* **Proactive Memory Management:** The agent should not only record information 
-  but also proactively maintain the memory structure, its relevance, 
+* **Proactive Memory Management:** The agent should not only record information
+  but also proactively maintain the memory structure, its relevance,
   and effectiveness for quick searching and retrieval of relevant data.
 * **Single Source of Truth:** Each fact should be stored in only one place
 * **References Instead of Copying:** Use references to other files instead of duplicating information
@@ -37,30 +37,30 @@ interconnected businesses and projects.
 
 **Trigger:** At the start of each new dialogue or interaction with the user.
 
-**Action Rule:** The agent must read the following core files relevant 
-to the current active business and project context to ensure 
-foundational understanding and immediate relevance: 
+**Action Rule:** The agent must read the following core files relevant
+to the current active business and project context to ensure
+foundational understanding and immediate relevance:
 - business.md (consolidated business overview and plan)
 - progress-log.md
 
-Additionally, the agent should review project-level files for the current project to stay updated 
+Additionally, the agent should review project-level files for the current project to stay updated
 on ongoing activities and recent developments.
 
 ## 2. Memory System Initialization
 
-**Trigger:** The user requests: "Initialize memory system." or "Start a new business project." 
+**Trigger:** The user requests: "Initialize memory system." or "Start a new business project."
 or if no memory bank has been found.
 
 **Action Rules:**
-* **Clarification Request:** If the request concerns a new business or project, the agent should clarify: 
+* **Clarification Request:** If the request concerns a new business or project, the agent should clarify:
   "For which business (e.g., 'Acme Corp', 'Startup Innovations') or project (e.g., 'New Product Launch X',
   'Process Optimization') do you want to initialize memory?"
-* **Current Context Definition:** After initialization or the first mention of a business/project, 
+* **Current Context Definition:** After initialization or the first mention of a business/project,
   the agent should consider it the current active context, unless the user explicitly specifies another.
-* **Existence Check:** Before creating, check if the following directories and files already exist 
+* **Existence Check:** Before creating, check if the following directories and files already exist
   for the specified business/project.
-* **Structure Creation:** Create the following directory hierarchy and initial Markdown files. 
-  Each business and project will have its nested structure: 
+* **Structure Creation:** Create the following directory hierarchy and initial Markdown files.
+  Each business and project will have its nested structure:
 
 ```
 /memory-bank/
@@ -74,9 +74,9 @@ or if no memory bank has been found.
         └── project-artifacts/ (Directory for factual documents and completed artifacts)
 ```
 
-**Initial Information Request:** 
-If business.md (at the business level) or mission-and-goals.md (at the project level) is empty after initialization, 
-politely ask the user for basic information to populate it. The mission-and-goals.md file should contain comprehensive 
+**Initial Information Request:**
+If business.md (at the business level) or mission-and-goals.md (at the project level) is empty after initialization,
+politely ask the user for basic information to populate it. The mission-and-goals.md file should contain comprehensive
 project information including goals, technical specifications, infrastructure details, and investment proposals.
 
 ## 3. Information Update
@@ -86,14 +86,14 @@ project information including goals, technical specifications, infrastructure de
 **Action Rules:**
 
 ### Automatic Target Determination
-The agent must analyze the content of the new information and its context (including 
-the current active business/project or mentions in the text) to automatically determine 
+The agent must analyze the content of the new information and its context (including
+the current active business/project or mentions in the text) to automatically determine
 the most suitable file or section for recording.
 
 **Determination Priorities (descending order):**
 1. **Explicit Mention:** If the user explicitly specifies a business ("For Project X of Acme Corp...")
    or a project, the agent must use that context.
-2. **Current Session Context:** If there's no explicit mention, the agent must use the last 
+2. **Current Session Context:** If there's no explicit mention, the agent must use the last
    actively discussed business/project.
 
 ### Semantic Content Analysis
@@ -103,8 +103,8 @@ the most suitable file or section for recording.
 - **Overall business strategy:** Record in `CurrentBusiness/business.md`
 - **Completed documents/artifacts:** Store in `CurrentBusiness/CurrentProject/project-artifacts/`
 
-**Clarification:** If the agent cannot unambiguously determine the appropriate business/project or file, 
-it should politely clarify with the user where to best record the information, 
+**Clarification:** If the agent cannot unambiguously determine the appropriate business/project or file,
+it should politely clarify with the user where to best record the information,
 offering 1-2 most likely options.
 
 ### Update Type
@@ -162,7 +162,6 @@ offering 1-2 most likely options.
 
 ### Automatic Necessity Determination
 Indicators for reorganization:
-- Excessive file size (>200 lines)
 - Unrelated topics within single file (low semantic coherence)
 - Opportunity for better logical organization
 - Information belonging to different projects/businesses
@@ -176,7 +175,6 @@ Indicators for reorganization:
 - **Content Consolidation:** Merging detailed project descriptions into mission-and-goals.md files
 
 ### File Size and Content Rules
-- **progress-log.md:** Maximum 100 lines, keep only last 30 days of entries
 - **All files:** Remove redundant information and consolidate similar content
 - **Details vs References:** Store details in appropriate files, use references in logs
 
@@ -190,11 +188,6 @@ Indicators for reorganization:
 2. Check progress-log.md for recent activities
 3. Use references for navigation between files
 4. Access detailed artifacts only when needed
-
-### Information Cleanup
-- Remove outdated information from progress logs (keep only last 30 days)
-- Archive completed plans and move to historical records
-- Delete temporary notes after content is consolidated
 
 ## 6. Dialog-Driven Rule Generation
 
